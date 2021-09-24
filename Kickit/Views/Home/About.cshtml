@@ -1,0 +1,137 @@
+﻿<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" runat="server" media="screen" href="~/css/site.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/site.js"></script>
+
+    <meta name="author" content="Ethan Partridge" />
+    <meta name="description" content="The about page contains information about myself and the Kickit project." />
+    <meta name="keywords" content="Kickit, habit, habit tracker, productivity, self-improvement, track, kick it, improve" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    @{
+        ViewBag.Title = "About";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+</head>
+
+<body>
+    <div class="container-fluid animated-body">
+        <div class="row about-page-rows">
+            <div class="col-12 about-page-col">
+                <h2>About</h2>
+            </div>
+        </div>
+        <div class="row about-page-rows">
+            <div class="col-12 about-page-col">
+                <p class="about-page-text">My name is Ethan Partridge. I’m a graduate of The University of Southern Indiana with a B.S. in Computer Science. My reason for creating Kickit was to learn more about the full stack web development process. I chose a habit tracker web application because I have always loved self improvement, so I thought a habit tracker would be a useful tool for anyone looking improve themselves. I will summarize my experience building Kickit below.</p>
+            </div>
+        </div>
+        <div class="row about-page-rows">
+            <div class="col-12 about-page-col">
+                <h4>Overview:</h4>
+                <p class="about-page-text">Kickit is an online habit tracker. Users can add and remove habits they would like to track. Once a user has completed a habit, the user can update the habit as “Completed”. The habits will always reset to “Not Completed” at midnight every night (as long as you are in the same time zone as you were when you updated the task as “Completed”). If the user forgets to log out, the application will automatically log the user out after 30 minutes.</p>
+            </div>
+        </div>
+        <div class="row about-page-rows">
+            <div class="col-xl-6 col-lg-5 col-md-5 col-sm-12 about-page-col">
+                <h4>What I Learned:</h4>
+                <div class="about-page-text">
+                    <ul>
+                        <li>
+                            Entity Framework basics
+                        </li>
+                        <li>
+                            ASP.NET MVC basics
+                        </li>
+                        <li>
+                            Became more comfortable with HTML5
+                        </li>
+                        <li>
+                            CSS basics and animations
+                        </li>
+                        <li>
+                            Javascript basics
+                        </li>
+                        <li>
+                            Jquery basics
+                        </li>
+                        <li>
+                            How to use SVG files
+                        </li>
+                        <li>
+                            Bootstrap 4 basics
+                        </li>
+                        <li>
+                            Claims-Based Security
+                        </li>
+                        <li>
+                            Password Reset via email
+                        </li>
+                        <li>
+                            Microsoft Azure basics
+                        </li>
+                        <li>
+                            SSL Certification
+                        </li>
+                        <li>
+                            DNS Records and Rerouting
+                        </li>
+                    </ul>
+                </div>
+                <h4>Tools Used:</h4>
+                <div class="about-page-text">
+                    <ol>
+                        <li>
+                            C#
+                        </li>
+                        <li>
+                            HTML5
+                        </li>
+                        <li>
+                            CSS3
+                        </li>
+                        <li>
+                            Javascript
+                        </li>
+                        <li>
+                            Jquery
+                        </li>
+                        <li>
+                            Bootstrap Framework
+                        </li>
+                        <li>
+                            Entity Framework
+                        </li>
+                        <li>
+                            ASP.NET MVC Framework
+                        </li>
+                        <li>
+                            Microsoft Azure
+                        </li>
+                        <li>
+                            Namecheap Nameserver
+                        </li>
+                        <li>
+                            Microsoft SQL Server Management Studio 18
+                        </li>
+                        <li>
+                            Visual Studio 2019
+                        </li>
+                        <li>
+                            Adobe Illustrator (for custom  SVG creation)
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-7 col-md-7 col-sm-12 about-page-col">
+                <div class="item justify-content-center">
+                    <img class="kickit-logo-about-page" src="~/images/kickit-logo.svg" alt="Kickit Logo" height="500" width="500" />
+                    <p class="kickit-logo-text"><span id="kickit-k">K</span><span id="kickit-i">i</span><span id="kickit-ckit">ckit</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

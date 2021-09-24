@@ -1,0 +1,68 @@
+﻿<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" runat="server" media="screen" href="~/css/site.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/site.js"></script>
+
+    <meta name="author" content="Ethan Partridge" />
+    <meta name="description" content="My contact info is on this page. Please feel free to reach out to me if you have any questions about the website." />
+    <meta name="keywords" content="Kickit, habit, habit tracker, productivity, self-improvement, track, kick it, improve" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    @{
+        ViewBag.Title = "Contact";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+</head>
+
+<body class="contact-page">
+    <div class="container p-3 contact-page-content">
+        <div class="row pt-4">
+            <div class="col m-3 header-col">
+                <h2 class="contact-header">Contact Info</h2>
+            </div>
+        </div>
+        <div class="row m-5">
+            <div class="col-4">
+                <h4 class="contact-page-text">Name:</h4>
+            </div>
+            <div class="col-8 justify-content-start">
+                <h4 class="contact-page-text cp-text">Ethan Partridge</h4>
+            </div>
+        </div>
+        <div class="row m-5">
+            <div class="col-4">
+                <h4 class="contact-page-text">Phone Number:</h4>
+            </div>
+            <div class="col-8 justify-content-start">
+                <h4 class="contact-page-text cp-text">(618)-841-1204</h4>
+            </div>
+        </div>
+        <div class="row m-5">
+            <div class="col-4">
+                <h4 class="contact-page-text">Email:</h4>
+            </div>
+            <div class="col-8 justify-content-start">
+                <h4 class="contact-page-text cp-text">ethanpart98@gmail.com</h4>
+            </div>
+        </div>
+        <div class="row m-5">
+            <div class="col-4">
+                <h4 class="contact-page-text">GitHub:</h4>
+            </div>
+            <div class="col-8 justify-content-start">
+                <h4 class="contact-page-text cp-text"><a class="social-links" href="https://github.com/EthanPartridge">https://github.com/EthanPartridge</a></h4>
+            </div>
+        </div>
+        <div class="row m-5">
+            <div class="col-4">
+                <h4 class="contact-page-text">LinkedIn:</h4>
+            </div>
+            <div class="col-8 justify-content-start">
+                <h4 class="contact-page-text cp-text"><a class="social-links" href="https://www.linkedin.com/in/ethanpartridge998/">https://www.linkedin.com/in/ethanpartridge998/</a></h4>
+            </div>
+        </div>
+    </div>
+</body>

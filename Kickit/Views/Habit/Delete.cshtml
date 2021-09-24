@@ -1,0 +1,62 @@
+﻿@model Kickit.Models.Habit
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" runat="server" media="screen" href="~/css/site.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/site.js"></script>
+
+    <meta name="author" content="Ethan Partridge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    @{
+        ViewBag.Title = "Delete Habit";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+</head>
+
+<body>
+    <div class="animated-body">
+        <form method="post" asp-action="DeletePost">
+            <input asp-for="Id" hidden />
+            <div class="container-fluid">
+                <div class="row text-center">
+                    <div class="col-12">
+                        <h2 class="text-black-50 delete-habit-header">Delete Habit</h2>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-12">
+                        <img src="~/images/warning-icon-png-2766.png" class="warning-image-delete-page"/>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-12 col-md-6 col-lg-5 col-xl-4 ">
+                        <h6 class="delete-habit-confirmation-header">Are you sure you want to delete this habit?</h6>
+                    </div>                  
+                </div>
+                <div class="row justify-content-center text-center">
+                    <div class="col-sm-12 col-md-6 col-lg-5 col-xl-4 ">
+                        <input asp-for="HabitName" disabled class="form-control delete-habit-input" />
+                    </div>
+                </div>
+                <div class="row text-center delete-btns">
+                    <div class="col-12">
+                        <input type="submit" class="btn btn-danger habit-delete-button" value="Delete" />
+                    </div>
+                    <div class="col-12">
+                        <a asp-action="Index" class="btn btn-info delete-back-button">Back</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

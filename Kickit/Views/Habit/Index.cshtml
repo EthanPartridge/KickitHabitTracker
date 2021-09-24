@@ -1,0 +1,92 @@
+﻿@model IEnumerable<Kickit.Models.Habit>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" runat="server" media="screen" href="~/css/site.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/site.js"></script>
+
+    <meta name="author" content="Ethan Partridge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    @{
+        ViewBag.Title = "Habits";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+</head>
+
+@{ string nowChecker = DateTime.Now.ToString("MM-dd-yyyy"); }
+@{
+    var claimGrabber = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).ToString();
+    var email = claimGrabber.Split(" ").Last();
+}
+
+<body>
+    <div class="container animated-body">
+        <div class="row welcome-header">
+            <div class="col text-center">
+                <h1 id="hello-user" class="habit-index-header"><span id="hello">Hello,</span> <span id="user">@User.Identity.Name.</span></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h2 class="habit-index-header">Habit List</h2>
+            </div>
+            <div class="col-6 text-right">
+                <a asp-controller="Habit" asp-action="Create" class="btn btn-primary">Add Habit</a>
+            </div>
+        </div>
+        <br />
+        @if (Model.Where(e => e.UserEmail == email).Count() > 0)
+        {
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6">
+                    <h4 class="habit-index-header">Habit</h4>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-6">
+                    <h4 class="habit-index-header">Completion Status</h4>
+                </div>
+                <div class="col-5" id="changes-col">
+                    <h4 class="habit-index-header">Changes</h4>
+                </div>
+                <hr class="hr-top w-100" />
+            </div>
+            @foreach (var habit in Model.Where(e => e.UserEmail == email))
+            {
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-6 align-self-center habit-col">
+                        <p class="habit-name habit-index-p">@habit.HabitName</p>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-6 align-self-center habit-col completion-col">
+                        <p class="completion-status habit-index-p">
+                            @if (habit.LastDayCompleted == nowChecker)
+                            {
+                                <span>Completed</span>
+                            }
+
+                            @if (habit.LastDayCompleted != nowChecker)
+                            {
+                                <span>Not Completed</span>
+                            }
+                        </p>
+                    </div>
+                    <div class="col-xl-5 col-lg-5 col-md-5 col-sm-5 col-12 align-self-center">
+                        <p class="habit-index-p">
+                            <div class="btn-group" role="group">
+                                <a asp-controller="Habit" asp-action="Update" asp-route-Id="@habit.Id" class="btn btn-info btn-a">Update</a>
+                                <a asp-controller="Habit" asp-action="Delete" asp-route-Id="@habit.Id" class="btn btn-danger btn-b">Delete</a>
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                <hr class="hr-list w-100" />
+            }
+        }
+        else
+        {
+            <p class="habit-index-p">Start adding new habits you want to track by clicking the "Add Habit" button.</p>
+        }
+    </div>
+</body>

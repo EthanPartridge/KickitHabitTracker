@@ -1,0 +1,880 @@
+﻿/*  ORDER OF CONTENT
+    1) Entire Project
+    2) Navbar
+    3) Index (Home Controller)
+    4) Contact (Home Controller)
+    5) About (Home Controller)
+    6) SignUp (Home Controller)
+    7) LogIn (Home Controller)
+    8) ForgotPassword (Home Controller)
+    9) ForgotPasswordConfirmation (Home Controller)
+    10) ResetPassword (Home Controller)
+    11) ResetPasswordConfirmation (Home Controller)
+    12) Index (Habit Controller)
+    13) Create (Habit Controller)
+    14) Update (Habit Controller)
+    15) Delete (Habit Controller)
+*/
+
+
+/**********Entire Project**********/
+* {
+    font-family: "Quicksand", sans-serif;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.animated-body {
+    animation:animate-body .2s ease-in;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes animate-body {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/**********Navbar**********/
+.navbar {
+    background-color: #f8f4f4;
+    box-shadow: 2px 3px 7px gray;
+    
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+  font-weight: 800;
+  margin-left: 10px;
+}
+
+.nav-item {
+    font-weight: 500;
+    white-space: nowrap;
+    transform: translateX(-75px);
+    margin-right: 30px;
+}
+
+.navbar-toggler {
+    float: right;
+}
+
+@media (max-width: 996px) {
+    .nav-item {
+        transform: translateX(0);
+        margin-right: 0px;
+    }
+}
+
+/**********Index (Home Controller)**********/
+.home-page {
+    overflow:hidden;
+}
+
+.home-page-text {
+    font-family: "Quicksand", sans-serif;
+    font-size: 80px;
+    text-align: left;
+    line-height: 120px;
+    margin-top: 100px;
+    margin-left: 80px;
+    animation: slide-up 1.8s cubic-bezier(0.42, 0, 0.6, 1.0);
+}
+.homepage-btn {
+    margin-top: 100px;
+    margin-left: 200px;
+    visibility: hidden;
+    animation: show-button 1s ease-in forwards;
+    animation-delay: 2.5s;
+}
+
+.homepage-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/kickit-homepage-unsplash.jpg') no-repeat ;
+    background-size: cover;
+    z-index: -1;
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(800px);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: .2;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes show-button {
+    from {
+        visibility: visible;
+        opacity: 0;
+    }
+
+    to {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+@media (max-width: 1270px) {
+    .home-page-text {
+        font-size: 70px;
+        margin-top: 80px;
+        margin-left: 60px;
+        line-height: 110px;
+    }
+
+    .homepage-btn {
+        margin-left: 60px;
+    }
+}
+
+@media (max-width: 1032px) {
+    .home-page-text {
+        font-size: 60px;
+        margin-top: 40px;
+        line-height: 100px;
+    }
+
+    .homepage-btn {
+        margin-left: 60px;
+    }
+}
+
+@media screen and (max-width: 848px) {
+    .home-page-text {
+        font-size: 60px;
+        line-height: 82px;
+        margin-top: 28px;
+        margin-left: 15px;
+    }
+
+    .homepage-btn {
+        margin-left: 15px;
+    }
+
+    .homepage-background-image {
+        background-position: bottom left 36%;
+    }
+}
+
+@media (max-width: 600px) {
+    .home-page-text {
+        font-size: 50px;
+    }
+
+    .homepage-btn {
+       margin: 0px;
+       transform: translateY(20vw);
+    }
+
+    .homepage-btn-row {
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+/**********Contact (Home Controller)**********/
+.contact-page {
+    background-color: #a6cfca;
+}
+
+.contact-page-content {
+    background-color: #f8f4f4;
+    box-shadow: 10px 10px 8px;
+    animation: show-contact-box 1s ease-in;
+}
+
+.contact-header {
+    transform: translateX(150px);
+    float: left;
+}
+
+.contact-page-text {
+    animation: show-contact-box-text 1s ease-in forwards;
+    animation-delay: 1s;
+    visibility: hidden; 
+}
+
+.cp-text {
+    word-break: break-word;
+}
+
+.social-links:link {
+    color: #90a9cf;
+}
+
+.social-links:hover {
+    color: blue;
+}
+
+@keyframes show-contact-box {
+    from {        
+        opacity: 0;
+        transform: translateX(10px) translateY(10px);
+        box-shadow: 0 0 0;
+    }
+
+    50% {
+        transform: translateX(0) translateY(0);
+        box-shadow: 10px 10px 8px;
+    }
+
+    to {
+        opacity: 1;        
+    }
+}
+
+@keyframes show-contact-box-text {
+    from {
+        opacity: 0;
+        visibility: visible;
+    }
+
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@media (max-width: 767px) {
+    .contact-header {
+        transform:translateX(40px);
+        justify-content: center;
+    }
+
+    .contact-page-text {
+        font-size: 16px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
+/**********About (Home Controller)**********/
+.about-page-rows {
+    margin: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.item {
+    text-align: center;    
+}
+
+.kickit-logo-about-page {
+    width: 500px;
+    height: 350px;
+    display: block;
+    margin: 0 auto;
+}
+
+.kickit-logo-text {
+    font-size: 195px;
+    font-weight: 800;    
+    white-space: nowrap;   
+}
+
+#kickit-k {
+    display: inline-block;
+    animation: k 4s ease-in infinite;
+    animation-delay: 1s;
+}
+
+#kickit-i {
+    display: inline-block;
+    transform-origin: bottom center;
+    animation: i 4s ease-out infinite;
+    animation-delay: 1s;
+}
+
+#kickit-ckit {
+    display: inline-block;
+}
+
+@keyframes k {
+    from {
+        transform: rotateZ(0deg);
+    }
+
+    25% {
+        transform: rotateZ(15deg);
+    }
+
+    37.5% {
+        transform: rotateZ(-20deg);
+    }
+
+    50% {
+        transform: rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateZ(0deg);
+    }
+}
+
+@keyframes i {
+    from {
+        transform: rotateZ(0deg);
+    }
+
+    37.5% {
+        transform: rotateZ(0deg);
+    }
+
+    42.5% {
+        transform: rotateZ(3deg);
+    }
+
+    46% {
+        transform: rotateZ(-2deg);
+    }
+
+    50% {
+        transform: rotateZ(0deg);
+    }
+
+    to {
+        transform: rotateZ(0deg);
+    }
+}
+
+@media (max-width: 1000px) {
+    .kickit-logo-about-page {
+        width: 350px;
+        height: 200px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .kickit-logo-text {
+        font-size: 115px;
+        font-weight: 800;
+        margin-top: -30px;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 549px) {
+    .about-page-text {
+        font-size: 14px;
+    }
+
+    .about-page-rows {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .about-page-col {
+        width: 100%;
+        margin: 0px;
+    }
+
+    .kickit-logo-about-page {
+        width: 240px;
+        height: 150px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .kickit-logo-text {
+        font-size: 85px;
+        font-weight: 800;
+        margin-top: -30px;
+        white-space: nowrap;
+    }
+}
+
+
+/**********SignUp (Home Controller)**********/
+
+.signup-acc-exists-error {
+    padding: 5px;
+    margin-bottom: 10px;
+    transform: translateY(-10px);
+}
+
+#signup-pic {
+    transform: translate(.5vw, -6vh);
+    height: 78vh;
+    width: auto;
+    display: block;
+    float: right;
+}
+
+.signup-label {
+    float:left;
+}
+
+.signup-input {
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+#signup-create-account {
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+#signup-cancel {
+    width: 250px;
+    margin-bottom: 30px;
+}
+
+.signup-form-body {
+    justify-content: center;
+    text-align: center;
+}
+
+@media (min-width: 1200px) {
+    .signup-input {
+        float: left;
+        transform: translateX(-6vw);
+    }
+
+    .signup-acc-exists-error {
+        padding:20px;
+        margin-right: 30px;
+        margin-bottom: 15px;
+    }
+
+    #signup-create-account {
+        float: left;
+        transform: translateX(-6vw);
+    }
+
+    #signup-cancel {
+        float: left;
+        transform: translateX(-6vw);
+    }
+
+    .signup-header {
+        margin-bottom: 25px;
+    }
+
+    .signup-span {
+        float: right;
+        margin-bottom: 8px;
+    }
+}
+
+@media (max-width: 767px) and (min-width: 576px) {
+    .signup-label {
+        transform: translateX(135px);
+    }
+}
+
+@media (max-width: 575px) {
+    .signup-label {
+        transform: translateX(0px);
+        float:none;
+    }
+
+    #signup-label-email {
+        transform: translateX(-66px);
+    }
+
+    #signup-label-password {
+        transform: translateX(-83px);
+    }
+
+    #signup-label-confirm-password {
+        transform: translateX(-51px);
+    }
+
+    #signup-label-fname {
+        transform: translateX(-78px);
+    }
+
+    #signup-label-lname {
+        transform: translateX(-78px);
+    }
+}
+
+/**********Login (Home Controller)**********/
+.login-header {
+    margin-bottom: 25px;
+}
+
+.login-input {
+    margin: 10px;
+    margin-left: 0px;
+    width: 250px;
+}
+
+.login-button {
+    margin: 10px;
+    width: 145px;
+}
+
+.forgot-password {
+    margin-top: 10px;
+}
+
+.alert-danger {
+    margin-top: 20px;
+}
+
+.create-account-login {
+    margin-top: 10px;
+}
+
+.signup-link-login:link {
+    color: #90a9cf;
+}
+
+.signup-link-login:link {
+    color: blue;
+}
+
+.kickit-logo-login-page {
+    width: 500px;
+    height: 350px;
+    display: block;
+    margin: 0 auto;
+}
+
+.kickit-logo-text-login-page {
+    font-size: 195px;
+    font-weight: 800;
+    margin-top: -40px;
+    white-space: nowrap;
+}
+
+@media (max-width: 1000px) {
+    .kickit-logo-login-page {
+        width: 350px;
+        height: 200px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .kickit-logo-text-login-page {
+        font-size: 115px;
+        font-weight: 800;
+        margin-top: -30px;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 549px) {
+
+    .kickit-logo-login-page {
+        width: 240px;
+        height: 150px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .kickit-logo-text-login-page {
+        font-size: 85px;
+        font-weight: 800;
+        margin-top: -30px;
+        white-space: nowrap;
+    }
+}
+
+/**********ForgotPassword (Home Controller)**********/
+#forgotpassword-submit {
+    width: 145px;
+    margin-left: 5px;
+}
+
+#forgotpassword-cancel {
+    width: 145px;
+}
+
+/**********ForgotPasswordConfirmation (Home Controller)**********/
+
+
+/**********ResetPassword (Home Controller)**********/
+.resetpassword-input {
+    margin: 10px;
+    margin-left: 0px;
+    width: 250px;
+}
+
+.resetpassword-label {
+    margin: 10px;
+    margin-left: 0px;
+    font-size: 20px;
+}
+
+#resetpassword-submit {
+    width: 145px;
+}
+
+/**********ResetPasswordConfirmation (Home Controller)**********/
+
+
+/**********Index (Habit Controller)**********/
+.welcome-header {
+    padding-top: 8px;
+}
+
+.hr-top {
+    display: block;
+    margin: auto;
+    overflow: hidden;
+    border-width: 4px;
+}
+
+.hr-list {
+    display: block;
+    margin: auto;
+    overflow: hidden;
+    border-width: 1px;
+}
+
+#hello-user {
+    justify-content: center;
+    text-align: center;
+    margin: auto;
+    white-space: nowrap;
+    margin-bottom: 8px;
+}
+
+#hello {
+    display: inline-block;
+    animation: hello-animation .8s ease-in forwards;
+    animation-delay: .2s;
+    visibility: hidden;
+}
+
+#user {
+    display: inline-block;
+    animation: user-animation 1.2s ease-in forwards;
+    animation-delay: .8s;
+    visibility: hidden;
+}
+
+.btn-group {
+    width: 100%;
+}
+
+.btn-a {
+    margin-right: 10px;
+}
+
+.btn-b {
+    margin-left: 10px;
+}
+
+
+@keyframes hello-animation {
+    from {
+        opacity: 0;
+        visibility: visible;
+    }
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes user-animation {
+    from {
+        opacity: 0;
+        visibility: visible;
+    }
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@media (max-width: 767px) {
+    .welcome-header {
+        padding-top: 0px;
+        margin-bottom: 15px;
+    }
+
+    h2.habit-index-header {
+        font-size: 24px;
+    }
+
+    h4.habit-index-header {
+        font-size: 15px;
+    }
+
+    .habit-index-p {
+        font-size: 14px;
+    }   
+}
+
+@media (max-width: 575px) {
+    .habit-col {
+        transform: translateY(10px);
+    }
+
+    #changes-col {
+        visibility:hidden;
+    }
+
+    .habit-index-header {
+        transform:translateY(15px);
+    }
+}
+
+/**********Create (Habit Controller)**********/
+.add-habit-name-label {
+    margin-top: 10px;
+    font-weight: 600;
+}
+.add-habit-header {
+    text-align: center;
+    margin: 10px;
+    margin-bottom: 20px;
+}
+
+.habit-add-button {
+    width: 250px;
+    margin-bottom: 22px;
+}
+
+.add-back-button {
+    width: 250px;
+}
+
+.add-btns {
+    margin-top: 10px;
+    transform: translateY(120px);
+}
+
+.pencil-image-add-page {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768) {
+    .pencil-image-add-page {
+        width: 150px;
+        height: 150px;
+        display: inline-block;
+        margin-bottom: 40px;
+    }
+}
+
+/**********Update (Habit Controller)**********/
+
+.update-page-checkmark {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.update-habit-header {
+    text-align: center;
+    margin: 10px;
+    margin-bottom: 20px;
+}
+
+.habit-update-button {
+    width: 250px;
+    margin-bottom: 22px;
+}
+
+.update-back-button {
+    width: 250px;
+}
+
+.update-btns {
+    margin-top: 10px;
+    transform: translateY(90px);
+}
+
+.update-habit-input {
+    margin-top: 10px;
+}
+
+.dropdown {
+    margin-top:20px;
+}
+
+@media (min-width: 768) {
+    .update-page-checkmark {
+        width: 150px;
+        height: 150px;
+        display: inline-block;
+        margin-bottom: 40px;
+    }
+
+    .delete-habit-confirmation-header {
+        font-size: 18px;
+    }
+}
+
+/**********Delete (Habit Controller)**********/
+.delete-habit-header {
+    text-align: center;
+    margin: 10px;
+    margin-bottom: 20px;
+}
+
+.habit-delete-button {
+    width: 250px;
+    margin-bottom: 22px;
+}
+
+.delete-back-button {
+    width:250px;
+}
+
+.delete-btns {
+    margin-top:10px;
+    transform:translateY(100px);
+}
+
+.delete-habit-input {
+    margin-top:10px;
+}
+
+.warning-image-delete-page {
+    width:100px;
+    height:100px;
+    display:inline-block;
+    margin-bottom:20px;
+}
+
+@media (min-width: 768px) {
+    .warning-image-delete-page {
+        width: 150px;
+        height: 150px;
+        display: inline-block;
+        margin-bottom: 40px;
+    }
+
+    .delete-habit-confirmation-header {
+        font-size:18px;
+    }
+}

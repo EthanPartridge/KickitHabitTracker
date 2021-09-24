@@ -1,0 +1,150 @@
+﻿@model Kickit.Models.User
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" runat="server" media="screen" href="~/css/site.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/site.js"></script>
+
+    <meta name="author" content="Ethan Partridge" />
+    <meta name="description" content="Sign up for Kickit to start tracking your habits." />
+    <meta name="keywords" content="Kickit, habit, habit tracker, productivity, self-improvement, track, kick it, improve" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    @{
+        ViewBag.Title = "Sign Up";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+</head>
+
+@{
+    var error = TempData["Error"] as string;
+}
+
+<body class="signup-page-body">
+    
+
+    <form method="post" asp-controller="Home" asp-action="SignUp">
+        <div class="container signup-container">
+            <div class="row">
+                <div class="col">
+                    <h1 class="signup-header">Sign Up</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-7 signup-left-col">
+                    @if (!string.IsNullOrEmpty(error))
+                    {
+                        <div class="row signup-form-body">
+                            <div class="col-12">
+                                <h3 class="alert-danger signup-acc-exists-error">@error</h3>
+                            </div>
+                        </div>
+                    }
+                <div class="row signup-form-body">
+                    <div class="col-12 col-xl-9">
+                        <span asp-validation-for="Email" class="text-danger signup-span"></span>
+                    </div>
+                    <div class="d-none d-xl-block col-xl-3">
+                    </div>
+                </div>
+                    <div class="row signup-form-body">
+                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-6">
+                            <label id="signup-label-email" class="signup-label">Email Address:</label>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <input asp-for="Email" class="signup-input" />
+                        </div>
+                        <div class="d-none d-md-block d-xl-none col-md-3 col-lg-3 this-is-space">
+                        </div>
+                    </div>
+                    <div class="row signup-form-body">
+                        <div class="col-12 col-xl-9">
+                            <span asp-validation-for="Password" class="text-danger signup-span"></span>
+                        </div>
+                        <div class="d-none d-xl-block col-xl-3">
+                        </div>
+                    </div>
+                    <div class="row signup-form-body">
+                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-6">
+                            <label id="signup-label-password" class="signup-label">Password:</label>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <input asp-for="Password" class="signup-input pword" />
+                        </div>
+                        <div class="d-none d-md-block d-xl-none col-md-3 col-lg-3 this-is-space">
+                        </div>
+                    </div>
+                    <div class="row signup-form-body">
+                        <div class="col-12 col-xl-9">
+                            <span class="text-danger signup-span validation-for-confirm-password"></span>
+                        </div>
+                        <div class="d-none d-xl-block col-xl-3">
+                        </div>
+                    </div>
+                    <div class="row signup-form-body">
+                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-6">
+                            <label id="signup-label-confirm-password" class="signup-label">Confirm Password:</label>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <input type="password" class="signup-input pword-confirm" />
+                        </div>
+                        <div class="d-none d-md-block d-xl-none col-md-3 col-lg-3 this-is-space">
+                        </div>
+                    </div>
+                    <div class="row signup-form-body">
+                        <div class="col-12 col-xl-9">
+                            <span asp-validation-for="First_Name" class="text-danger signup-span"></span>
+                        </div>
+                        <div class="d-none d-xl-block col-xl-3">
+                        </div>
+                    </div>
+                    <div class="row signup-form-body">
+                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-6">
+                            <label id="signup-label-fname" class="signup-label">First Name:</label>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <input asp-for="First_Name" class="signup-input" />
+                        </div>
+                        <div class="d-none d-md-block d-xl-none col-md-3 col-lg-3 this-is-space">
+                        </div>
+                    </div>
+                    <div class="row signup-form-body">
+                        <div class="col-12 col-xl-9">
+                            <span asp-validation-for="Last_Name" class="text-danger signup-span"></span>
+                        </div>
+                        <div class="d-none d-xl-block col-xl-3">
+                        </div>
+                    </div>
+                    <div class="row signup-form-body">
+                        <div class="col-sm-12 col-md-3 col-lg-3 col-xl-6">
+                            <label id="signup-label-lname" class="signup-label">Last Name:</label>
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <input asp-for="Last_Name" class="signup-input" />
+                        </div>
+                        <div class="d-none d-md-block d-xl-none col-md-3 col-lg-3 this-is-space">
+                        </div>
+                    </div>
+                    <div class="row signup-form-body">
+                        <div class="d-none d-xl-block col-xl-6">
+                        </div>
+                        <div class="col-12 col-xl-6">
+                            <input id="signup-create-account" type="submit" class="btn btn-primary" value="Create Account" />
+                        </div>
+                        <div class="d-none d-xl-block col-xl-6">
+                        </div>
+                        <div class="col-12 col-xl-6">
+                            <a id="signup-cancel" asp-action="Index" class="btn btn-danger">Cancel</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 d-none d-xl-block" id="signup-pic-wrapper">
+                    <img id="signup-pic" src="~/images/kickit-signup-unsplash.jpg" alt="Man Smiling at Computer" />
+                </div>
+            </div>
+        </div>
+    </form>
+</body>

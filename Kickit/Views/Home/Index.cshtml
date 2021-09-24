@@ -1,0 +1,39 @@
+﻿<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" runat="server" media="screen" href="~/css/site.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/site.js"></script>
+
+    <meta name="author" content="Ethan Partridge" />
+    <meta name="description" content="Kickit is a habit tracking website which whill allow you track any activities that you would like to turn into habits." />
+    <meta name="keywords" content="Kickit, habit, habit tracker, productivity, self-improvement, track, kick it, improve" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    @{
+        ViewBag.Title = "Home";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+</head>
+
+<body class="home-page">
+    <div class="homepage-background-image"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12">
+                    <h2 class="home-page-text">
+                        Take Control<br />
+                        of Your Life<br />
+                        Today.
+                    </h2>
+                    
+                </div>
+            </div>
+            <div class="row homepage-btn-row">
+                <div class="col">
+                    <a class="btn btn-info homepage-btn" asp-action="SignUp">Start Tracking Your Habits</a>
+                </div>
+            </div>
+        </div>    
+</body>

@@ -1,0 +1,56 @@
+﻿<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" runat="server" media="screen" href="~/css/site.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/site.js"></script>
+
+    <meta name="author" content="Ethan Partridge" />
+    <meta name="description" content="Log in to Kickit to check your habits." />
+    <meta name="keywords" content="Kickit, habit, habit tracker, productivity, self-improvement, track, kick it, improve" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    @{
+        ViewBag.Title = "Log In";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+</head>
+
+@{ 
+    var error = TempData["Error"] as string;
+}
+
+<body class="login-body">
+    <div class="container animated-body">
+        <div class="row">
+            <div class="col-xl-6 col-lg-5 col-md-5 col-sm-12">
+                <h1 class="login-header">Log In</h1>
+                <form action="/Login" method="post">
+                    <input class="login-input" type="text" name="email" placeholder="Email" />
+                    <br />
+                    <input class="login-input" type="password" name="password" placeholder="Password" />
+                    
+                    <input class="login-button btn btn-primary" type="submit" value="Login" />
+                </form>
+                <div class="forgot-password">
+                    <a asp-action="ForgotPassword">Forgot Password?</a>
+                </div>
+                @if (!string.IsNullOrEmpty(error))
+                {
+                    <h3 class="alert-danger" style="padding:20px;">@error</h3>
+                    <h6 class="create-account-login">
+                    Are you a new user? Click 
+                    <a class="signup-link-login" asp-action="SignUp">here</a> 
+                    to create a new account.</h6>
+                }
+            </div>
+            <div class="col-xl-6 col-lg-7 col-md-7 col-sm-12">
+                <div class="item justify-content-center">
+                    <img class="kickit-logo-login-page" src="~/images/kickit-logo.svg" alt="Kickit Logo" height="500" width="500" />
+                    <p class="kickit-logo-text-login-page"><span id="kickit-k">K</span><span id="kickit-i">i</span><span id="kickit-ckit">ckit</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

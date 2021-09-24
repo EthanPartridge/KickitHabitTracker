@@ -1,0 +1,96 @@
+﻿@model Kickit.Models.Habit
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" runat="server" media="screen" href="~/css/site.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/site.js"></script>
+
+    <meta name="author" content="Ethan Partridge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    @{
+        ViewBag.Title = "Update Habit";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+</head>
+
+@{ string now = DateTime.Now.ToString("MM-dd-yyyy"); }
+@{
+    var claimGrabber = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).ToString();
+    var email = claimGrabber.Split(" ").Last();
+}
+
+<body>
+    <div class="animated-body">
+        <form method="post" asp-action="Update" autocomplete="off">
+            <input asp-for="Id" hidden />
+            <input asp-for="UserEmail" value="@email" hidden />
+            <input id="currentDate" asp-for="LastDayCompleted" hidden />
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h2 class="text-black-50 update-habit-header">Update Habit</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <img src="~/images/kickit-checkmark.png" class="update-page-checkmark"/>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-12 col-md-6 col-lg-5 col-xl-4">
+                        <label asp-for="HabitName">Habit Name:</label>
+                    </div>
+                </div>
+                <div class="row text-center justify-content-center">
+                    <div class="col-sm-12 col-md-6 col-lg-5 col-xl-4">
+                        <input asp-for="HabitName" class="form-control update-habit-input" />
+                        <span asp-validation-for="HabitName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-12">
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                -Select Status-
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenu">
+                                <button class="dropdown-item" id="comp" type="button" data-value="Completed">Completed</button>
+                                <button class="dropdown-item" id="notcomp" type="button" data-value="Not Completed">Not Completed</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row text-center update-btns">
+                    <div class="col-12">
+                        <input type="submit" class="btn btn-info habit-update-button" value="Update" />
+                    </div>
+                    <div class="col-12">
+                        <a asp-action="Index" class="btn btn-danger update-back-button">Back</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+<script>
+    //These functions set the value of the hidden input #currentDate, which is stored in the datbase as LastDayCompleted
+    $("button#comp").click(function () {
+        $("input#currentDate").val("@now");
+    });
+
+    $("button#notcomp").click(function () {
+        $("input#currentDate").val(null);
+    });
+</script>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

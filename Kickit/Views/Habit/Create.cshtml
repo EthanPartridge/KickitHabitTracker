@@ -1,0 +1,68 @@
+﻿@model Kickit.Models.Habit
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" runat="server" media="screen" href="~/css/site.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/site.js"></script>
+
+    <meta name="author" content="Ethan Partridge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    @{
+        ViewBag.Title = "Create Habit";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+</head>
+
+@{
+    var claimGrabber = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier).ToString();
+    var email = claimGrabber.Split(" ").Last();
+}
+
+<body>
+    <div class="animated-body">
+        <form method="post" asp-action="Create" autocomplete="off">
+            <input asp-for="UserEmail" value="@email" hidden />
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <h2 class="add-habit-header text-black-50">Add Habit</h2>
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col">
+                        <img src="~/images/pencil.svg" class="pencil-image-add-page" />
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-12 col-md-6 col-lg-5 col-xl-4">
+                        <label class="add-habit-name-label" asp-for="HabitName">Habit Name:</label>
+                    </div>
+                    </div>
+                <div class="row justify-content-center">
+                    <div class="col-sm-12 col-md-6 col-lg-5 col-xl-4">
+                        <input asp-for="HabitName" class="form-control" />
+                        <span asp-validation-for="HabitName" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row text-center add-btns">
+                    <div class="col-12">
+                        <input type="submit" class="btn btn-info habit-add-button " value="Add" />
+                    </div>
+                    <div class="col-12">
+                        <a asp-action="Index" class="btn btn-danger add-back-button">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
