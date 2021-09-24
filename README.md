@@ -1,5 +1,7 @@
 # KickitHabitTracker
-Habit tracker full stack web application deployed using ASP.NET MVC and hosted on Microsoft Azure.
+WEBSITE LINK: https://kickithabittracker.com/
+
+Full stack web application deployed using ASP.NET MVC and hosted on Microsoft Azure that helps users track habits
 
 To download and run this application locally, edit the "appsettings.json" file with your local database information as the the default connection string.
 
